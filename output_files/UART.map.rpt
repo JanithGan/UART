@@ -1,0 +1,445 @@
+Analysis & Synthesis report for UART
+Sun Nov 10 20:05:15 2019
+Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Analysis & Synthesis Summary
+  3. Analysis & Synthesis Settings
+  4. Parallel Compilation
+  5. Analysis & Synthesis Source Files Read
+  6. Analysis & Synthesis Resource Usage Summary
+  7. Analysis & Synthesis Resource Utilization by Entity
+  8. State Machine - |router|UART_rx:I_RS232RX|State
+  9. Registers Removed During Synthesis
+ 10. Removed Registers Triggering Further Register Optimizations
+ 11. General Register Statistics
+ 12. Inverted Register Statistics
+ 13. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 14. Parameter Settings for User Entity Instance: UART_rx:I_RS232RX
+ 15. Parameter Settings for User Entity Instance: UART_tx:I_RS232TX
+ 16. Port Connectivity Checks: "UART_baudrate_gen:I_BAUDGEN"
+ 17. Port Connectivity Checks: "UART_tx:I_RS232TX"
+ 18. Port Connectivity Checks: "UART_rx:I_RS232RX"
+ 19. Post-Synthesis Netlist Statistics for Top Partition
+ 20. Elapsed Time Per Partition
+ 21. Analysis & Synthesis Messages
+ 22. Analysis & Synthesis Suppressed Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 2018  Intel Corporation. All rights reserved.
+Your use of Intel Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Intel Program License 
+Subscription Agreement, the Intel Quartus Prime License Agreement,
+the Intel FPGA IP License Agreement, or other applicable license
+agreement, including, without limitation, that your use is for
+the sole purpose of programming logic devices manufactured by
+Intel and sold by Intel or its authorized distributors.  Please
+refer to the applicable agreement for further details.
+
+
+
++----------------------------------------------------------------------------------+
+; Analysis & Synthesis Summary                                                     ;
++------------------------------------+---------------------------------------------+
+; Analysis & Synthesis Status        ; Successful - Sun Nov 10 20:05:15 2019       ;
+; Quartus Prime Version              ; 18.1.0 Build 625 09/12/2018 SJ Lite Edition ;
+; Revision Name                      ; UART                                        ;
+; Top-level Entity Name              ; router                                      ;
+; Family                             ; Cyclone IV E                                ;
+; Total logic elements               ; 90                                          ;
+;     Total combinational functions  ; 72                                          ;
+;     Dedicated logic registers      ; 60                                          ;
+; Total registers                    ; 60                                          ;
+; Total pins                         ; 12                                          ;
+; Total virtual pins                 ; 0                                           ;
+; Total memory bits                  ; 0                                           ;
+; Embedded Multiplier 9-bit elements ; 0                                           ;
+; Total PLLs                         ; 0                                           ;
++------------------------------------+---------------------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Settings                                                                              ;
++------------------------------------------------------------------+--------------------+--------------------+
+; Option                                                           ; Setting            ; Default Value      ;
++------------------------------------------------------------------+--------------------+--------------------+
+; Device                                                           ; EP4CE22F17C6       ;                    ;
+; Top-level entity name                                            ; router             ; UART               ;
+; Family name                                                      ; Cyclone IV E       ; Cyclone V          ;
+; Use smart compilation                                            ; Off                ; Off                ;
+; Enable parallel Assembler and Timing Analyzer during compilation ; On                 ; On                 ;
+; Enable compact report table                                      ; Off                ; Off                ;
+; Restructure Multiplexers                                         ; Auto               ; Auto               ;
+; Create Debugging Nodes for IP Cores                              ; Off                ; Off                ;
+; Preserve fewer node names                                        ; On                 ; On                 ;
+; Intel FPGA IP Evaluation Mode                                    ; Enable             ; Enable             ;
+; Verilog Version                                                  ; Verilog_2001       ; Verilog_2001       ;
+; VHDL Version                                                     ; VHDL_1993          ; VHDL_1993          ;
+; State Machine Processing                                         ; Auto               ; Auto               ;
+; Safe State Machine                                               ; Off                ; Off                ;
+; Extract Verilog State Machines                                   ; On                 ; On                 ;
+; Extract VHDL State Machines                                      ; On                 ; On                 ;
+; Ignore Verilog initial constructs                                ; Off                ; Off                ;
+; Iteration limit for constant Verilog loops                       ; 5000               ; 5000               ;
+; Iteration limit for non-constant Verilog loops                   ; 250                ; 250                ;
+; Add Pass-Through Logic to Inferred RAMs                          ; On                 ; On                 ;
+; Infer RAMs from Raw Logic                                        ; On                 ; On                 ;
+; Parallel Synthesis                                               ; On                 ; On                 ;
+; DSP Block Balancing                                              ; Auto               ; Auto               ;
+; NOT Gate Push-Back                                               ; On                 ; On                 ;
+; Power-Up Don't Care                                              ; On                 ; On                 ;
+; Remove Redundant Logic Cells                                     ; Off                ; Off                ;
+; Remove Duplicate Registers                                       ; On                 ; On                 ;
+; Ignore CARRY Buffers                                             ; Off                ; Off                ;
+; Ignore CASCADE Buffers                                           ; Off                ; Off                ;
+; Ignore GLOBAL Buffers                                            ; Off                ; Off                ;
+; Ignore ROW GLOBAL Buffers                                        ; Off                ; Off                ;
+; Ignore LCELL Buffers                                             ; Off                ; Off                ;
+; Ignore SOFT Buffers                                              ; On                 ; On                 ;
+; Limit AHDL Integers to 32 Bits                                   ; Off                ; Off                ;
+; Optimization Technique                                           ; Balanced           ; Balanced           ;
+; Carry Chain Length                                               ; 70                 ; 70                 ;
+; Auto Carry Chains                                                ; On                 ; On                 ;
+; Auto Open-Drain Pins                                             ; On                 ; On                 ;
+; Perform WYSIWYG Primitive Resynthesis                            ; Off                ; Off                ;
+; Auto ROM Replacement                                             ; On                 ; On                 ;
+; Auto RAM Replacement                                             ; On                 ; On                 ;
+; Auto DSP Block Replacement                                       ; On                 ; On                 ;
+; Auto Shift Register Replacement                                  ; Auto               ; Auto               ;
+; Allow Shift Register Merging across Hierarchies                  ; Auto               ; Auto               ;
+; Auto Clock Enable Replacement                                    ; On                 ; On                 ;
+; Strict RAM Replacement                                           ; Off                ; Off                ;
+; Allow Synchronous Control Signals                                ; On                 ; On                 ;
+; Force Use of Synchronous Clear Signals                           ; Off                ; Off                ;
+; Auto RAM Block Balancing                                         ; On                 ; On                 ;
+; Auto RAM to Logic Cell Conversion                                ; Off                ; Off                ;
+; Auto Resource Sharing                                            ; Off                ; Off                ;
+; Allow Any RAM Size For Recognition                               ; Off                ; Off                ;
+; Allow Any ROM Size For Recognition                               ; Off                ; Off                ;
+; Allow Any Shift Register Size For Recognition                    ; Off                ; Off                ;
+; Use LogicLock Constraints during Resource Balancing              ; On                 ; On                 ;
+; Ignore translate_off and synthesis_off directives                ; Off                ; Off                ;
+; Timing-Driven Synthesis                                          ; On                 ; On                 ;
+; Report Parameter Settings                                        ; On                 ; On                 ;
+; Report Source Assignments                                        ; On                 ; On                 ;
+; Report Connectivity Checks                                       ; On                 ; On                 ;
+; Ignore Maximum Fan-Out Assignments                               ; Off                ; Off                ;
+; Synchronization Register Chain Length                            ; 2                  ; 2                  ;
+; Power Optimization During Synthesis                              ; Normal compilation ; Normal compilation ;
+; HDL message level                                                ; Level2             ; Level2             ;
+; Suppress Register Optimization Related Messages                  ; Off                ; Off                ;
+; Number of Removed Registers Reported in Synthesis Report         ; 5000               ; 5000               ;
+; Number of Swept Nodes Reported in Synthesis Report               ; 5000               ; 5000               ;
+; Number of Inverted Registers Reported in Synthesis Report        ; 100                ; 100                ;
+; Clock MUX Protection                                             ; On                 ; On                 ;
+; Auto Gated Clock Conversion                                      ; Off                ; Off                ;
+; Block Design Naming                                              ; Auto               ; Auto               ;
+; SDC constraint protection                                        ; Off                ; Off                ;
+; Synthesis Effort                                                 ; Auto               ; Auto               ;
+; Shift Register Replacement - Allow Asynchronous Clear Signal     ; On                 ; On                 ;
+; Pre-Mapping Resynthesis Optimization                             ; Off                ; Off                ;
+; Analysis & Synthesis Message Level                               ; Medium             ; Medium             ;
+; Disable Register Merging Across Hierarchies                      ; Auto               ; Auto               ;
+; Resource Aware Inference For Block RAM                           ; On                 ; On                 ;
++------------------------------------------------------------------+--------------------+--------------------+
+
+
++------------------------------------------+
+; Parallel Compilation                     ;
++----------------------------+-------------+
+; Processors                 ; Number      ;
++----------------------------+-------------+
+; Number detected on machine ; 8           ;
+; Maximum allowed            ; 4           ;
+;                            ;             ;
+; Average used               ; 1.00        ;
+; Maximum used               ; 4           ;
+;                            ;             ;
+; Usage by Processor         ; % Time Used ;
+;     Processor 1            ; 100.0%      ;
+;     Processors 2-4         ;   0.0%      ;
++----------------------------+-------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                                             ;
++----------------------------------+-----------------+------------------------+--------------------------------------------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type              ; File Name with Absolute Path                                                               ; Library ;
++----------------------------------+-----------------+------------------------+--------------------------------------------------------------------------------------------+---------+
+; UART_rx.v                        ; yes             ; User Verilog HDL File  ; C:/Users/Janith/Documents/Aca Private/4 - Electronics III/Project/UART/UART_rx.v           ;         ;
+; UART_tx.v                        ; yes             ; User Verilog HDL File  ; C:/Users/Janith/Documents/Aca Private/4 - Electronics III/Project/UART/UART_tx.v           ;         ;
+; router.v                         ; yes             ; User Verilog HDL File  ; C:/Users/Janith/Documents/Aca Private/4 - Electronics III/Project/UART/router.v            ;         ;
+; UART_baudrate_gen.v              ; yes             ; User Verilog HDL File  ; C:/Users/Janith/Documents/Aca Private/4 - Electronics III/Project/UART/UART_baudrate_gen.v ;         ;
++----------------------------------+-----------------+------------------------+--------------------------------------------------------------------------------------------+---------+
+
+
++----------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary                                      ;
++---------------------------------------------+------------------------------------+
+; Resource                                    ; Usage                              ;
++---------------------------------------------+------------------------------------+
+; Estimated Total logic elements              ; 90                                 ;
+;                                             ;                                    ;
+; Total combinational functions               ; 72                                 ;
+; Logic element usage by number of LUT inputs ;                                    ;
+;     -- 4 input functions                    ; 29                                 ;
+;     -- 3 input functions                    ; 10                                 ;
+;     -- <=2 input functions                  ; 33                                 ;
+;                                             ;                                    ;
+; Logic elements by mode                      ;                                    ;
+;     -- normal mode                          ; 49                                 ;
+;     -- arithmetic mode                      ; 23                                 ;
+;                                             ;                                    ;
+; Total registers                             ; 60                                 ;
+;     -- Dedicated logic registers            ; 60                                 ;
+;     -- I/O registers                        ; 0                                  ;
+;                                             ;                                    ;
+; I/O pins                                    ; 12                                 ;
+;                                             ;                                    ;
+; Embedded Multiplier 9-bit elements          ; 0                                  ;
+;                                             ;                                    ;
+; Maximum fan-out node                        ; UART_baudrate_gen:I_BAUDGEN|Equal0 ;
+; Maximum fan-out                             ; 48                                 ;
+; Total fan-out                               ; 424                                ;
+; Average fan-out                             ; 2.72                               ;
++---------------------------------------------+------------------------------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                  ;
++----------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+-------------------------------------+-------------------+--------------+
+; Compilation Hierarchy Node       ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                 ; Entity Name       ; Library Name ;
++----------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+-------------------------------------+-------------------+--------------+
+; |router                          ; 72 (1)              ; 60 (0)                    ; 0           ; 0            ; 0       ; 0         ; 12   ; 0            ; |router                             ; router            ; work         ;
+;    |UART_baudrate_gen:I_BAUDGEN| ; 21 (21)             ; 16 (16)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |router|UART_baudrate_gen:I_BAUDGEN ; UART_baudrate_gen ; work         ;
+;    |UART_rx:I_RS232RX|           ; 23 (23)             ; 28 (28)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |router|UART_rx:I_RS232RX           ; UART_rx           ; work         ;
+;    |UART_tx:I_RS232TX|           ; 27 (27)             ; 16 (16)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |router|UART_tx:I_RS232TX           ; UART_tx           ; work         ;
++----------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+-------------------------------------+-------------------+--------------+
+Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
+Encoding Type:  One-Hot
++-------------------------------------------------+
+; State Machine - |router|UART_rx:I_RS232RX|State ;
++------------+------------------------------------+
+; Name       ; State.READ                         ;
++------------+------------------------------------+
+; State.IDLE ; 0                                  ;
+; State.READ ; 1                                  ;
++------------+------------------------------------+
+
+
++--------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                             ;
++---------------------------------------+----------------------------------------+
+; Register name                         ; Reason for Removal                     ;
++---------------------------------------+----------------------------------------+
+; UART_tx:I_RS232TX|in_data[0..7]       ; Stuck at GND due to stuck port data_in ;
+; UART_rx:I_RS232RX|State~5             ; Lost fanout                            ;
+; Total Number of Removed Registers = 9 ;                                        ;
++---------------------------------------+----------------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------------------+
+; Removed Registers Triggering Further Register Optimizations                                                            ;
++------------------------------+---------------------------+-------------------------------------------------------------+
+; Register name                ; Reason for Removal        ; Registers Removed due to This Register                      ;
++------------------------------+---------------------------+-------------------------------------------------------------+
+; UART_tx:I_RS232TX|in_data[7] ; Stuck at GND              ; UART_tx:I_RS232TX|in_data[6], UART_tx:I_RS232TX|in_data[5], ;
+;                              ; due to stuck port data_in ; UART_tx:I_RS232TX|in_data[4], UART_tx:I_RS232TX|in_data[3], ;
+;                              ;                           ; UART_tx:I_RS232TX|in_data[2], UART_tx:I_RS232TX|in_data[1], ;
+;                              ;                           ; UART_tx:I_RS232TX|in_data[0]                                ;
++------------------------------+---------------------------+-------------------------------------------------------------+
+
+
++------------------------------------------------------+
+; General Register Statistics                          ;
++----------------------------------------------+-------+
+; Statistic                                    ; Value ;
++----------------------------------------------+-------+
+; Total registers                              ; 60    ;
+; Number of registers using Synchronous Clear  ; 0     ;
+; Number of registers using Synchronous Load   ; 16    ;
+; Number of registers using Asynchronous Clear ; 20    ;
+; Number of registers using Asynchronous Load  ; 0     ;
+; Number of registers using Clock Enable       ; 26    ;
+; Number of registers using Preset             ; 0     ;
++----------------------------------------------+-------+
+
+
++------------------------------------------------------+
+; Inverted Register Statistics                         ;
++--------------------------------------------+---------+
+; Inverted Register                          ; Fan out ;
++--------------------------------------------+---------+
+; UART_baudrate_gen:I_BAUDGEN|baudRateReg[0] ; 2       ;
+; UART_tx:I_RS232TX|start_bit                ; 5       ;
+; UART_rx:I_RS232RX|start_bit                ; 4       ;
+; Total number of inverted registers = 3     ;         ;
++--------------------------------------------+---------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                     ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output           ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------+
+; 3:1                ; 5 bits    ; 10 LEs        ; 5 LEs                ; 5 LEs                  ; Yes        ; |router|UART_tx:I_RS232TX|Bit[3]     ;
+; 3:1                ; 5 bits    ; 10 LEs        ; 5 LEs                ; 5 LEs                  ; Yes        ; |router|UART_rx:I_RS232RX|Bit[2]     ;
+; 4:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |router|UART_tx:I_RS232TX|counter[2] ;
+; 4:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |router|UART_rx:I_RS232RX|counter[2] ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------+
+
+
++----------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: UART_rx:I_RS232RX ;
++----------------+-------+---------------------------------------+
+; Parameter Name ; Value ; Type                                  ;
++----------------+-------+---------------------------------------+
+; IDLE           ; 0     ; Unsigned Binary                       ;
+; READ           ; 1     ; Unsigned Binary                       ;
++----------------+-------+---------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: UART_tx:I_RS232TX ;
++----------------+-------+---------------------------------------+
+; Parameter Name ; Value ; Type                                  ;
++----------------+-------+---------------------------------------+
+; IDLE           ; 0     ; Unsigned Binary                       ;
+; WRITE          ; 1     ; Unsigned Binary                       ;
++----------------+-------+---------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------+
+; Port Connectivity Checks: "UART_baudrate_gen:I_BAUDGEN" ;
++-----------------+-------+----------+--------------------+
+; Port            ; Type  ; Severity ; Details            ;
++-----------------+-------+----------+--------------------+
+; BaudRate[15..9] ; Input ; Info     ; Stuck at GND       ;
+; BaudRate[5..3]  ; Input ; Info     ; Stuck at GND       ;
+; BaudRate[8]     ; Input ; Info     ; Stuck at VCC       ;
+; BaudRate[7]     ; Input ; Info     ; Stuck at GND       ;
+; BaudRate[6]     ; Input ; Info     ; Stuck at VCC       ;
+; BaudRate[2]     ; Input ; Info     ; Stuck at VCC       ;
+; BaudRate[1]     ; Input ; Info     ; Stuck at GND       ;
+; BaudRate[0]     ; Input ; Info     ; Stuck at VCC       ;
++-----------------+-------+----------+--------------------+
+
+
++------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "UART_tx:I_RS232TX"                                                                    ;
++--------+--------+----------+-------------------------------------------------------------------------------------+
+; Port   ; Type   ; Severity ; Details                                                                             ;
++--------+--------+----------+-------------------------------------------------------------------------------------+
+; TxEn   ; Input  ; Info     ; Stuck at VCC                                                                        ;
+; TxDone ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++--------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++-----------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "UART_rx:I_RS232RX"                                                                         ;
++-------------+--------+----------+-------------------------------------------------------------------------------------+
+; Port        ; Type   ; Severity ; Details                                                                             ;
++-------------+--------+----------+-------------------------------------------------------------------------------------+
+; RxEn        ; Input  ; Info     ; Stuck at VCC                                                                        ;
+; RxDone      ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; NBits[2..0] ; Input  ; Info     ; Stuck at GND                                                                        ;
+; NBits[3]    ; Input  ; Info     ; Stuck at VCC                                                                        ;
++-------------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++-----------------------------------------------------+
+; Post-Synthesis Netlist Statistics for Top Partition ;
++-----------------------+-----------------------------+
+; Type                  ; Count                       ;
++-----------------------+-----------------------------+
+; boundary_port         ; 12                          ;
+; cycloneiii_ff         ; 60                          ;
+;     CLR               ; 4                           ;
+;     CLR SLD           ; 16                          ;
+;     ENA               ; 26                          ;
+;     plain             ; 14                          ;
+; cycloneiii_lcell_comb ; 72                          ;
+;     arith             ; 23                          ;
+;         1 data inputs ; 1                           ;
+;         2 data inputs ; 22                          ;
+;     normal            ; 49                          ;
+;         0 data inputs ; 1                           ;
+;         1 data inputs ; 4                           ;
+;         2 data inputs ; 5                           ;
+;         3 data inputs ; 10                          ;
+;         4 data inputs ; 29                          ;
+;                       ;                             ;
+; Max LUT depth         ; 4.00                        ;
+; Average LUT depth     ; 2.17                        ;
++-----------------------+-----------------------------+
+
+
++-------------------------------+
+; Elapsed Time Per Partition    ;
++----------------+--------------+
+; Partition Name ; Elapsed Time ;
++----------------+--------------+
+; Top            ; 00:00:01     ;
++----------------+--------------+
+
+
++-------------------------------+
+; Analysis & Synthesis Messages ;
++-------------------------------+
+Info: *******************************************************************
+Info: Running Quartus Prime Analysis & Synthesis
+    Info: Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
+    Info: Processing started: Sun Nov 10 20:04:55 2019
+Info: Command: quartus_map --read_settings_files=on --write_settings_files=off UART -c UART
+Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
+Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
+Info (12021): Found 1 design units, including 1 entities, in source file uart_rx.v
+    Info (12023): Found entity 1: UART_rx File: C:/Users/Janith/Documents/Aca Private/4 - Electronics III/Project/UART/UART_rx.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file uart_tx.v
+    Info (12023): Found entity 1: UART_tx File: C:/Users/Janith/Documents/Aca Private/4 - Electronics III/Project/UART/UART_tx.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file router.v
+    Info (12023): Found entity 1: router File: C:/Users/Janith/Documents/Aca Private/4 - Electronics III/Project/UART/router.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file uart_baudrate_gen.v
+    Info (12023): Found entity 1: UART_baudrate_gen File: C:/Users/Janith/Documents/Aca Private/4 - Electronics III/Project/UART/UART_baudrate_gen.v Line: 1
+Info (12127): Elaborating entity "router" for the top level hierarchy
+Info (12128): Elaborating entity "UART_rx" for hierarchy "UART_rx:I_RS232RX" File: C:/Users/Janith/Documents/Aca Private/4 - Electronics III/Project/UART/router.v Line: 41
+Info (12128): Elaborating entity "UART_tx" for hierarchy "UART_tx:I_RS232TX" File: C:/Users/Janith/Documents/Aca Private/4 - Electronics III/Project/UART/router.v Line: 53
+Info (12128): Elaborating entity "UART_baudrate_gen" for hierarchy "UART_baudrate_gen:I_BAUDGEN" File: C:/Users/Janith/Documents/Aca Private/4 - Electronics III/Project/UART/router.v Line: 61
+Info (286030): Timing-Driven Synthesis is running
+Info (17049): 1 registers lost all their fanouts during netlist optimizations.
+Info (144001): Generated suppressed messages file C:/Users/Janith/Documents/Aca Private/4 - Electronics III/Project/UART/output_files/UART.map.smsg
+Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
+    Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
+Info (21057): Implemented 103 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 3 input pins
+    Info (21059): Implemented 9 output pins
+    Info (21061): Implemented 91 logic cells
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 1 warning
+    Info: Peak virtual memory: 4769 megabytes
+    Info: Processing ended: Sun Nov 10 20:05:15 2019
+    Info: Elapsed time: 00:00:20
+    Info: Total CPU time (on all processors): 00:00:44
+
+
++------------------------------------------+
+; Analysis & Synthesis Suppressed Messages ;
++------------------------------------------+
+The suppressed messages can be found in C:/Users/Janith/Documents/Aca Private/4 - Electronics III/Project/UART/output_files/UART.map.smsg.
+
+

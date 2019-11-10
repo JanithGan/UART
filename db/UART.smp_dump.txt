@@ -1,0 +1,5 @@
+
+State Machine - |router|UART_rx:I_RS232RX|State
+Name State.READ 
+State.IDLE 0 
+State.READ 1 
